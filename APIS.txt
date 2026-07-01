@@ -1,0 +1,117 @@
+STEMVerse - Complete Backend API List (V1)
+Authentication APIs
+POST   /api/auth/register
+POST   /api/auth/login
+GET    /api/auth/profile
+PUT    /api/auth/profile
+POST   /api/auth/logout
+User APIs
+GET    /api/users/:userId
+GET    /api/users
+PUT    /api/users/:userId
+DELETE /api/users/:userId
+Course APIs
+POST   /api/courses
+GET    /api/courses
+GET    /api/courses/:courseId
+PUT    /api/courses/:courseId
+DELETE /api/courses/:courseId
+Enrollment APIs
+POST   /api/courses/:courseId/enroll
+DELETE /api/courses/:courseId/unenroll
+GET    /api/users/my-courses
+GET    /api/courses/:courseId/students
+Lesson APIs
+POST   /api/lessons
+GET    /api/lessons/:lessonId
+PUT    /api/lessons/:lessonId
+DELETE /api/lessons/:lessonId
+
+GET    /api/courses/:courseId/lessons
+Video APIs
+POST   /api/lessons/:lessonId/video
+PUT    /api/lessons/:lessonId/video
+DELETE /api/lessons/:lessonId/video
+Quiz APIs
+POST   /api/quizzes
+GET    /api/quizzes/:quizId
+PUT    /api/quizzes/:quizId
+DELETE /api/quizzes/:quizId
+Question APIs
+POST   /api/quizzes/:quizId/questions
+GET    /api/quizzes/:quizId/questions
+PUT    /api/questions/:questionId
+DELETE /api/questions/:questionId
+Quiz Attempt APIs
+POST   /api/quizzes/:quizId/submit
+GET    /api/quizzes/:quizId/results
+GET    /api/users/:userId/attempts
+Progress APIs
+POST   /api/progress/complete
+GET    /api/progress
+GET    /api/progress/:courseId
+AI Quiz Generation APIs
+POST   /api/ai/generate-quiz
+POST   /api/ai/save-generated-quiz
+GET    /api/ai/generated-quizzes
+GET    /api/ai/generated-quizzes/:quizId
+DELETE /api/ai/generated-quizzes/:quizId
+Teacher Dashboard APIs
+GET    /api/teacher/dashboard
+
+GET    /api/teacher/courses
+
+GET    /api/teacher/analytics/:courseId
+
+GET    /api/teacher/students
+
+GET    /api/teacher/students/:studentId/progress
+Student Dashboard APIs
+GET    /api/student/dashboard
+
+GET    /api/student/courses
+
+GET    /api/student/progress
+
+GET    /api/student/quiz-history
+Admin APIs
+GET    /api/admin/dashboard
+
+GET    /api/admin/users
+
+GET    /api/admin/courses
+
+DELETE /api/admin/users/:userId
+
+DELETE /api/admin/courses/:courseId
+Analytics APIs
+GET    /api/analytics/course/:courseId
+
+GET    /api/analytics/student/:studentId
+
+GET    /api/analytics/platform
+API Development Order (Very Important)
+Phase 1 (Must Build First)
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/profile
+Phase 2
+POST /api/courses
+GET  /api/courses
+GET  /api/courses/:courseId
+Phase 3
+POST /api/lessons
+GET  /api/lessons/:lessonId
+POST /api/lessons/:lessonId/video
+Phase 4
+POST /api/quizzes
+POST /api/quizzes/:quizId/questions
+GET  /api/quizzes/:quizId
+POST /api/quizzes/:quizId/submit
+Phase 5 (AI Feature)
+POST /api/ai/generate-quiz
+POST /api/ai/save-generated-quiz
+Phase 6
+POST /api/courses/:courseId/enroll
+POST /api/progress/complete
+GET  /api/progress

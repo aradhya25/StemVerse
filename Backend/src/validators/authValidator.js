@@ -1,0 +1,21 @@
+const { body } = require("express-validator");
+
+exports.registerValidation = [
+  body("name").notEmpty().withMessage("Name is required"),
+
+  body("email").isEmail().withMessage("Enter valid email"),
+
+  body("password")
+    .isLength({ min: 6 })
+    .withMessage("Password must be at least 6 characters"),
+
+  body("role")
+    .isIn(["student", "teacher", "admin"])
+    .withMessage("Invalid role"),
+];
+
+exports.loginValidation = [
+  body("email").isEmail().withMessage("Enter valid email"),
+
+  body("password").notEmpty().withMessage("Password is required"),
+];
