@@ -32,6 +32,8 @@ router.post(
 router.get("/", getAllQuizzes);
 router.get(
   "/lesson/:lessonId",
+  uuidValidation("lessonId"),
+  validate,
   getQuizByLesson
 );
 router.get("/:id", getQuizById);
@@ -59,11 +61,17 @@ router.post(
   "/:quizId/questions",
   authMiddleware,
   roleMiddleware("teacher"),
-  questionValidation, // ✅
+  uuidValidation("quizId"),
+  questionValidation,
   validate,
-  addQuestion,
+  addQuestion
 );
 
-router.get("/:quizId/questions", getQuestions);
+router.get(
+  "/:quizId/questions",
+  uuidValidation("quizId"),
+  validate,
+  getQuestions
+);
 
 module.exports = router;

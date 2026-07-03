@@ -24,6 +24,8 @@ import ManageLessonsPage from "../pages/Teacher/Lessons/ManageLessonsPage";
 import CreateLessonPage from "../pages/Teacher/Lessons/CreateLessonPage";
 import EditLessonPage from "../pages/Teacher/Lessons/EditLessonPage";
 import EditCoursePage from "../pages/Teacher/Courses/EditCoursePage";
+import ManageQuizPage from "../pages/Teacher/Quizzes/ManageQuizPage";
+import CreateQuizPage from "../pages/Teacher/Quizzes/CreateQuizPage";
 // import Lesson from "../pages/Student/Lesson/Lesson";
 // import Quiz from "../pages/Student/Quiz/Quiz";
 // import Progress from "../pages/Student/Progress/Progress";
@@ -177,6 +179,22 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute allowedRoles={["teacher"]}>
               <EditCoursePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/teacher/lesson/:lessonId/quiz"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <ManageQuizPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/teacher/lesson/:lessonId/quiz/create"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <CreateQuizPage />
             </ProtectedRoute>
           }
         />

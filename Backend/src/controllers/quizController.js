@@ -8,14 +8,22 @@ const {
   deleteQuiz,
   addQuestion,
   getQuestions,
-   getQuizByLesson
+  getQuizByLesson,
 } = require("../models/quizModel");
 
 exports.createQuiz = async (req, res) => {
   try {
-    const { lesson_id, title, description } = req.body;
+    const { lesson_id, title, description, time_limit, passing_score } =
+      req.body;
 
-    const quiz = await createQuiz(uuidv4(), lesson_id, title, description);
+    const quiz = await createQuiz(
+      uuidv4(),
+      lesson_id,
+      title,
+      description,
+      time_limit,
+      passing_score,
+    );
 
     res.status(201).json({
       success: true,
@@ -62,18 +70,11 @@ exports.getQuizById = async (req, res) => {
 };
 exports.getQuizByLesson = async (req, res) => {
   try {
-    const quiz = await getQuizByLesson(req.params.lessonId);
-
-    if (!quiz) {
-      return res.status(404).json({
-        success: false,
-        message: "Quiz not found",
-      });
-    }
+    const quizzes = await getQuizByLesson(req.params.lessonId);
 
     res.json({
       success: true,
-      quiz,
+      quizzes,
     });
   } catch (error) {
     res.status(500).json({
