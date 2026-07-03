@@ -70,6 +70,8 @@ export default function ManageQuizPage() {
         getLessonById(lessonId),
         getQuizzes(lessonId),
       ]);
+      console.log("Lesson Response:", lessonRes.data);
+      console.log("Quiz Response:", quizzesRes.data);
       if (
         lessonRes.data &&
         lessonRes.data.success &&
@@ -78,6 +80,7 @@ export default function ManageQuizPage() {
       ) {
         setLesson(lessonRes.data.lesson);
         setQuizzes(quizzesRes.data.quizzes || []);
+        
       } else {
         throw new Error("API server returned unsuccessful status.");
       }
@@ -138,7 +141,7 @@ export default function ManageQuizPage() {
     <TeacherLayout>
       <div className="space-y-8 relative">
         {/* Toast Container */}
-       
+
         {/* Loading Skeletons */}
         {isLoading && <TeacherQuizSkeleton />}
         {/* Connection Failure Error block */}
@@ -167,8 +170,8 @@ export default function ManageQuizPage() {
             {filteredQuizzes.length > 0 ? (
               <TeacherQuizGrid
                 quizzes={filteredQuizzes}
-              onDeleteInit={setDeleteTarget}
-            lessonId={lessonId}
+                onDeleteInit={setDeleteTarget}
+                lessonId={lessonId}
               />
             ) : (
               <TeacherQuizEmpty lessonId={lessonId} />

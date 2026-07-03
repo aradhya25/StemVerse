@@ -48,10 +48,11 @@ const getQuizByLesson = async (lessonId) => {
   const result = await pool.query(
     `SELECT *
      FROM quizzes
-     WHERE lesson_id = $1
-     ORDER BY created_at DESC`,
+     WHERE lesson_id = $1`,
     [lessonId]
   );
+
+  
 
   return result.rows;
 };
@@ -147,14 +148,70 @@ const getQuizWithTeacher = async (quizId) => {
 
   return result.rows[0];
 };
+const getQuestionById = async (id) => {
+  const result = await pool.query(
+    `SELECT *
+     FROM questions
+     WHERE id = $1`,
+    [id]
+  );
+
+  return result.rows[0];
+};
+
+const updateQuestion = async (
+  id,
+  question,
+  option_a,
+  option_b,
+  option_c,
+  option_d,
+  correct_answer
+) => {
+  const result = await pool.query(
+    `UPDATE questions
+     SET question = $1,
+         option_a = $2,
+         option_b = $3,
+         option_c = $4,
+         option_d = $5,
+         correct_answer = $6
+     WHERE id = $7
+     RETURNING *`,
+    [
+      question,
+      option_a,
+      option_b,
+      option_c,
+      option_d,
+      correct_answer,
+      id,
+    ]
+  );
+
+  return result.rows[0];
+};
+
+const deleteQuestion = async (id) => {
+  await pool.query(
+    `DELETE FROM questions
+     WHERE id = $1`,
+    [id]
+  );
+};
 module.exports = {
   createQuiz,
   getAllQuizzes,
   getQuizById,
-   getQuizByLesson,
+  getQuizByLesson,
   getQuizWithTeacher,
   updateQuiz,
   deleteQuiz,
+
   addQuestion,
   getQuestions,
+
+  getQuestionById,
+  updateQuestion,
+  deleteQuestion,
 };

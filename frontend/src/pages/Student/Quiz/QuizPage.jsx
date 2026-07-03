@@ -112,32 +112,45 @@ const navigate=useNavigate();
   //     setIsLoading(false);
   //   }
   // };
-  useEffect(() => {
-    const fetchQuiz = async () => {
-      try {
-        setLoading(true);
+ useEffect(() => {
+  const fetchQuiz = async () => {
+    try {
+      setLoading(true);
 
-        const quizRes = await getQuizByLesson(lessonId);
+      const quizRes = await getQuizByLesson(lessonId);
 
-        setQuiz(quizRes.data.quiz);
+      console.log("Quiz Response:", quizRes.data);
 
-        const questionRes = await getQuestions(quizRes.data.quiz.id);
+      const quizzes = quizRes.data.quizzes || [];
 
-        setQuestions(questionRes.data.questions);
-
-        if (questionRes.data.questions.length === 0) {
-          setEmpty(true);
-        }
-      } catch (err) {
-        console.error(err);
-        setError(true);
-      } finally {
-        setLoading(false);
+      // No quiz available
+      if (quizzes.length === 0) {
+        setEmpty(true);
+        return;
       }
-    };
 
-    fetchQuiz();
-  }, [lessonId]);
+      // For now, use the first quiz
+      const selectedQuiz = quizzes[0];
+
+      setQuiz(selectedQuiz);
+
+      const questionRes = await getQuestions(selectedQuiz.id);
+
+      setQuestions(questionRes.data.questions || []);
+
+      if (questionRes.data.questions.length === 0) {
+        setEmpty(true);
+      }
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchQuiz();
+}, [lessonId]);
   // 2. Navigation Actions
   const handleSelectAnswer = (optionKey) => {
     const currentQuestion = questions[currentIndex];

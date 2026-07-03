@@ -11,9 +11,8 @@ export const getQuizzes = (lessonId) =>
 export const getQuizById = (quizId) =>
   api.get(`/quizzes/${quizId}`);
 
-export const createQuiz = (data) => {
-  return api.post("/quizzes", data);
-};
+export const createQuiz = (data) =>
+  api.post("/quizzes", data);
 
 export const updateQuiz = (quizId, data) =>
   api.put(`/quizzes/${quizId}`, data);
@@ -25,5 +24,15 @@ export const deleteQuiz = (quizId) =>
 export const getQuestions = (quizId) =>
   api.get(`/quizzes/${quizId}/questions`);
 
-export const addQuestion = (quizId, data) =>
-  api.post(`/quizzes/${quizId}/questions`, data);
+export const getQuestionById = (id) =>
+  api.get(`/quizzes/questions/${id}`);
+
+export const addQuestion = (quizId, data) => {
+  return api.post(`/quizzes/${quizId}/questions`, data);
+};
+
+export const updateQuestion = (id, data) =>
+  api.put(`/quizzes/questions/${id}`, data);
+
+export const deleteQuestion = (id) =>
+  api.delete(`/quizzes/questions/${id}`);

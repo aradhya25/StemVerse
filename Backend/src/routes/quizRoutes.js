@@ -11,14 +11,17 @@ const {
   deleteQuiz,
   addQuestion,
   getQuestions,
-  getQuizByLesson
+  getQuizByLesson,
+  getQuestionById,
+  updateQuestion,
+  deleteQuestion,
+
 } = require("../controllers/quizController");
 const {
   quizValidation,
   questionValidation,
 } = require("../validators/quizValidator");
 const validate = require("../middleware/validationMiddleware");
-
 
 router.post(
   "/",
@@ -34,7 +37,7 @@ router.get(
   "/lesson/:lessonId",
   uuidValidation("lessonId"),
   validate,
-  getQuizByLesson
+  getQuizByLesson,
 );
 router.get("/:id", getQuizById);
 
@@ -64,14 +67,35 @@ router.post(
   uuidValidation("quizId"),
   questionValidation,
   validate,
-  addQuestion
+  addQuestion,
 );
 
 router.get(
   "/:quizId/questions",
   uuidValidation("quizId"),
   validate,
-  getQuestions
+  getQuestions,
 );
+router.delete(
+  "/questions/:id",
+  authMiddleware,
+  roleMiddleware("teacher"),
+  uuidValidation(),
+  validate,
+  deleteQuestion,
+);
+router.get("/questions/:id", uuidValidation(), validate, getQuestionById);
+
+router.put(
+  "/questions/:id",
+  authMiddleware,
+  roleMiddleware("teacher"),
+  uuidValidation(),
+  questionValidation,
+  validate,
+  updateQuestion,
+);
+
+
 
 module.exports = router;

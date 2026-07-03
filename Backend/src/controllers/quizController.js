@@ -9,6 +9,9 @@ const {
   addQuestion,
   getQuestions,
   getQuizByLesson,
+  getQuestionById,
+  updateQuestion,
+  deleteQuestion,
 } = require("../models/quizModel");
 
 exports.createQuiz = async (req, res) => {
@@ -71,10 +74,10 @@ exports.getQuizById = async (req, res) => {
 exports.getQuizByLesson = async (req, res) => {
   try {
     const quizzes = await getQuizByLesson(req.params.lessonId);
-
+   
     res.json({
       success: true,
-      quizzes,
+      quizzes, // <-- plural
     });
   } catch (error) {
     res.status(500).json({
@@ -168,6 +171,88 @@ exports.getQuestions = async (req, res) => {
     res.status(500).json({
       success: false,
 
+      message: error.message,
+    });
+  }
+};
+exports.getQuestionById = async (req, res) => {
+  try {
+    const question = await getQuestionById(req.params.id);
+
+    if (!question) {
+      return res.status(404).json({
+        success: false,
+        message: "Question not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      question,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.updateQuestion = async (req, res) => {
+  try {
+    const { question, option_a, option_b, option_c, option_d, correct_answer } =
+      req.body;
+
+    const updatedQuestion = await updateQuestion(
+      req.params.id,
+      question,
+      option_a,
+      option_b,
+      option_c,
+      option_d,
+      correct_answer,
+    );
+
+    if (!updatedQuestion) {
+      return res.status(404).json({
+        success: false,
+        message: "Question not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Question updated successfully",
+      question: updatedQuestion,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.deleteQuestion = async (req, res) => {
+  try {
+    const question = await getQuestionById(req.params.id);
+
+    if (!question) {
+      return res.status(404).json({
+        success: false,
+        message: "Question not found",
+      });
+    }
+
+    await deleteQuestion(req.params.id);
+
+    res.status(200).json({
+      success: true,
+      message: "Question deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
       message: error.message,
     });
   }
