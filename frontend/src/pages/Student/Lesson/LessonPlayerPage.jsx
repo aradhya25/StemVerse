@@ -9,6 +9,8 @@ import LessonNavigation from "../../../components/LessonPlayer/LessonNavigation"
 import LessonSkeleton from "../../../components/LessonPlayer/LessonSkeleton";
 import { saveProgress } from "../../../services/progressApi";
 import { getLessonById, getLessonsByCourse } from "../../../services/lessonApi";
+import { generateLessonSummary } from "../../../services/aiApi";
+import AiLessonSummaryCard from "../../../components/LessonPlayer/AiLessonSummaryCard";
 // const MOCK_LESSON_DETAILS = {
 //   "101": {
 //     id: "101",
@@ -92,6 +94,8 @@ export default function LessonPlayerPage() {
   const [courseLessons, setCourseLessons] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [completedLessons, setCompletedLessons] = useState({});
+  const [summary, setSummary] = useState("");
+  const [summaryLoading, setSummaryLoading] = useState(false);
   useEffect(() => {
     const fetchLesson = async () => {
       try {
@@ -145,7 +149,7 @@ export default function LessonPlayerPage() {
     }
   };
   const handleTakeQuiz = () => {
-     navigate(`/student/quiz/${lesson.id}`);
+    navigate(`/student/quiz/${lesson.id}`);
   };
   const getSiblingLessonId = (offset) => {
     if (!lesson || courseLessons.length === 0) return null;
@@ -162,6 +166,21 @@ export default function LessonPlayerPage() {
   };
   const prevLessonId = getSiblingLessonId(-1);
   const nextLessonId = getSiblingLessonId(1);
+  const handleGenerateSummary = async () => {
+    try {
+      setSummaryLoading(true);
+
+      const response = await generateLessonSummary(lesson.content);
+
+      if (response.data.success) {
+        setSummary(response.data.summary);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSummaryLoading(false);
+    }
+  };
   return (
     <StudentLayout>
       <div className="space-y-8">
@@ -192,6 +211,11 @@ export default function LessonPlayerPage() {
                 />
                 {/* 2. Content Details Component */}
                 <LessonContent lesson={lesson} />
+                <AiLessonSummaryCard
+                  summary={summary}
+                  loading={summaryLoading}
+                  onGenerate={handleGenerateSummary}
+                />
               </div>
               {/* Right Column: Lessons Navigator Sidebar (30%) */}
               <div className="lg:col-span-4 w-full">

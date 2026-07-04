@@ -59,8 +59,8 @@ export default function AllCourseCard({ course, isEnrolled, onEnroll }) {
         </div>
         {/* Floating Language Badge */}
         <div className="absolute top-4 left-4">
-          <span className="bg-primary/95 text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-            {language}
+          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-slate-800 shadow-lg border border-white/50">
+            🌐 {language}
           </span>
         </div>
       </div>

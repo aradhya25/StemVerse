@@ -61,8 +61,8 @@ export default function StudentLayout({ children }) {
       {/* MOBILE HEADER (TOP) */}
       <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-white border-b border-slate-100 sticky top-0 z-40 shadow-sm">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="bg-primary p-1.5 rounded-lg text-white">
-            <FaBrain className="w-4 h-4" />
+          <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 p-2 text-white shadow-md">
+            <FaBrain className="h-6 w-6" />
           </div>
           <span className="text-lg font-bold tracking-tight text-darkGray">
             STEM<span className="text-primary">Verse</span>
@@ -83,8 +83,8 @@ export default function StudentLayout({ children }) {
           <div className="space-y-8">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 group">
-              <div className="bg-primary p-2 rounded-xl text-white group-hover:scale-105 transition-transform shadow-md shadow-primary/20">
-                <FaBrain className="w-5 h-5" />
+              <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 p-2 text-white shadow-md">
+                <FaBrain className="h-6 w-6" />
               </div>
               <span className="text-xl font-bold tracking-tight text-darkGray font-sans">
                 STEM<span className="text-primary">Verse</span>

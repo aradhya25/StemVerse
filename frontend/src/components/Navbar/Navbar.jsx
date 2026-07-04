@@ -27,17 +27,15 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
+        isScrolled ? "bg-white/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-primary p-2 rounded-xl text-white shadow-lg">
-              <FaBrain className="w-6 h-6" />
+            <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 p-2 text-white shadow-md">
+              <FaBrain className="h-6 w-6" />
             </div>
 
             <span className="text-2xl font-bold">
@@ -64,7 +62,7 @@ export default function Navbar() {
                 >
                   {link.name}
                 </Link>
-              )
+              ),
             )}
           </div>
 
@@ -79,7 +77,7 @@ export default function Navbar() {
 
             <Link
               to="/register"
-              className="px-5 py-2.5 rounded-xl bg-primary text-white font-semibold hover:shadow-lg transition"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Register
             </Link>
@@ -118,7 +116,7 @@ export default function Navbar() {
                 >
                   {link.name}
                 </Link>
-              )
+              ),
             )}
 
             <hr />
@@ -133,8 +131,7 @@ export default function Navbar() {
 
             <Link
               to="/register"
-              onClick={() => setIsOpen(false)}
-              className="text-center bg-primary text-white rounded-lg py-2 font-semibold"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Register
             </Link>

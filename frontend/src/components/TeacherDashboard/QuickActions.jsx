@@ -36,7 +36,7 @@ export default function QuickActions() {
       title: 'AI Quiz Generator',
       desc: 'Instantly build quizzes using AI',
       icon: <FaMagic className="w-6 h-6 text-white animate-pulse" />,
-      path: '/teacher/ai-quiz',
+      path: '/teacher/ai-quiz-generator',
       gradient: 'from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800',
     }
   ];

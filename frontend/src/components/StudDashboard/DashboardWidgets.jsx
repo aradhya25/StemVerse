@@ -14,9 +14,11 @@ import {
   FaChevronRight,
   FaRobot,
 } from "react-icons/fa";
+import { useAuth } from "../../context/AuthContext";
 // 1. StatsCard Component
 export function StatsCard({ dashboard }) {
     console.log("Dashboard Prop:", dashboard);
+    
   const stats = [
     {
       label: "Enrolled Courses",
@@ -303,6 +305,7 @@ export function AIAssistantCard() {
 }
 // 6. ProfileCard Component
 export function ProfileCard() {
+  const { user } = useAuth();
   return (
     <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-premium space-y-6">
       <div className="flex items-center justify-between">
@@ -320,21 +323,33 @@ export function ProfileCard() {
       <div className="flex flex-col items-center text-center space-y-4">
         {/* Avatar */}
         <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-blue-600 text-white flex items-center justify-center font-extrabold text-2xl shadow-lg relative">
-          AR
-          <span className="absolute -bottom-1 -right-1 w-4.5 h-4.5 bg-secondary border-2 border-white rounded-full" />
-        </div>
-        {/* Info */}
-        <div className="space-y-1">
-          <h4 className="text-base font-bold text-darkGray">Aradhya Roy</h4>
-          <span className="inline-block text-[9px] uppercase font-extrabold tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-            Student ID: 41852
-          </span>
-        </div>
+  {user?.name
+    ? user.name
+        .split(" ")
+        .map((word) => word[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase()
+    : "U"}
+
+  <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary border-2 border-white rounded-full" />
+</div>
+
+{/* Info */}
+<div className="space-y-1">
+  <h4 className="text-base font-bold text-darkGray">
+    {user?.name || "Student"}
+  </h4>
+
+  <span className="inline-block text-[9px] uppercase font-extrabold tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+    Student
+  </span>
+</div>
         {/* Grid Meta details */}
         <div className="w-full space-y-2.5 text-xs text-slate-500 pt-2 border-t border-slate-50 text-left font-medium">
           <div className="flex items-center space-x-2.5">
             <FaEnvelope className="text-slate-400 w-3.5 h-3.5" />
-            <span>aradhya@stemverse.com</span>
+            <span>{user?.email}</span>
           </div>
           <div className="flex items-center space-x-2.5">
             <FaAward className="text-slate-400 w-3.5 h-3.5" />
