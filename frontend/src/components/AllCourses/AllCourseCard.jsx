@@ -102,7 +102,7 @@ export default function AllCourseCard({ course, isEnrolled, onEnroll }) {
             <button
               onClick={handleEnrollClick}
               disabled={isEnrolling}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-primary to-blue-750 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl shadow-md shadow-primary/10 hover:shadow-lg transition-all duration-300 text-xs flex items-center justify-center space-x-2 disabled:opacity-75"
+               className="inline-flex items-center justify-center space-x-2 py-3 px-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 disabled:opacity-50 text-white font-bold rounded-xl text-sm shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-700/40 active:translate-y-0 disabled:pointer-events-none"
             >
               {isEnrolling ? (
                 <>
