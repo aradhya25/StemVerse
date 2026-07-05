@@ -16,7 +16,7 @@ export default function Footer() {
   const socials = [
     { icon: <FaGithub className="w-5 h-5" />, url: 'https://github.com', label: 'GitHub' },
     { icon: <FaLinkedin className="w-5 h-5" />, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <FaEnvelope className="w-5 h-5" />, url: 'mailto:contact@stemverse.com', label: 'Email' },
+    { icon: <FaEnvelope className="w-5 h-5" />, url: 'mailto:contact@LearnSphere.com', label: 'Email' },
   ];
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
@@ -29,7 +29,7 @@ export default function Footer() {
                 <FaBrain className="w-5 h-5" />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">
-                STEM<span className="text-primary-light">Verse</span>
+                Learn<span className="text-primary-light">Sphere</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
         {/* Divider */}
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-          <p>© 2026 STEMVerse. All Rights Reserved.</p>
+          <p>© 2026 LearnSphere. All Rights Reserved.</p>
           <p className="mt-2 sm:mt-0">Designed for modern educational excellence.</p>
         </div>
       </div>

@@ -31,6 +31,9 @@ import CreateQuestionPage from "../pages/Teacher/Quizzes/CreateQuestionPage";
 import EditQuestionPage from "../pages/Teacher/Quizzes/EditQuestionPage";
 import TeacherAttemptsPage from "../pages/Teacher/Quizzes/TeacherAttemptsPage";
 import AiQuizGeneratorPage from "../pages/Teacher/Quizzes/AiQuizGeneratorPage";
+import TeacherStudentsPage from "../pages/Teacher/TeacherStudents/TeacherStudentsPage";
+import TeacherProfilePage from "../pages/Teacher/Profile/TeacherProfilePage";
+import TeacherReviewsPage from "../pages/Teacher/TeacherReviews/TeacherReviewsPage";
 // import Lesson from "../pages/Student/Lesson/Lesson";
 // import Quiz from "../pages/Student/Quiz/Quiz";
 // import Progress from "../pages/Student/Progress/Progress";
@@ -240,6 +243,30 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute allowedRoles={["teacher"]}>
               <AiQuizGeneratorPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/teacher/students"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <TeacherStudentsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/teacher/profile"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <TeacherProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/teacher/reviews"
+          element={
+            <ProtectedRoute allowedRoles={["teacher"]}>
+              <TeacherReviewsPage />
             </ProtectedRoute>
           }
         />

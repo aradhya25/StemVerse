@@ -7,7 +7,7 @@ export default function Testimonials() {
       name: 'Sarah Jenkins',
       role: 'Physics Major, State College',
       rating: 5,
-      text: 'STEMVerse has completely transformed how I study. The AI-generated quizzes adapt directly to the topics I struggle with, saving me hours of review time before midterms.',
+      text: 'LearnSphere has completely transformed how I study. The AI-generated quizzes adapt directly to the topics I struggle with, saving me hours of review time before midterms.',
       avatarInitials: 'SJ',
       avatarBg: 'bg-gradient-to-br from-blue-500 to-indigo-600',
     },
@@ -25,7 +25,7 @@ export default function Testimonials() {
       name: 'Marcus Vance',
       role: 'Self-Taught Software Engineer',
       rating: 5,
-      text: 'The YouTube integration is absolute magic. I pasted a complex engineering playlist, and STEMVerse built a structured learning path with custom quiz checkpoints instantly.',
+      text: 'The YouTube integration is absolute magic. I pasted a complex engineering playlist, and LearnSphere built a structured learning path with custom quiz checkpoints instantly.',
       avatarInitials: 'MV',
       avatarBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
     },
@@ -43,7 +43,7 @@ export default function Testimonials() {
             What Our Community Says
           </p>
           <p className="text-base text-darkGray-light font-normal">
-            Read stories from students, teachers, and developers who have accelerated their learning path using STEMVerse.
+            Read stories from students, teachers, and developers who have accelerated their learning path using LearnSphere.
           </p>
         </div>
         {/* Testimonials Grid */}

@@ -84,7 +84,7 @@ export default function Features() {
             Designed for Modern Educational Excellence
           </p>
           <p className="text-base text-darkGray-light font-normal">
-            STEMVerse comes packed with intelligent tools designed to optimize the learning pipeline for students, teachers, and recruiters.
+            LearnSphere comes packed with intelligent tools designed to optimize the learning pipeline for students, teachers, and recruiters.
           </p>
         </div>
         {/* Feature Grid */}

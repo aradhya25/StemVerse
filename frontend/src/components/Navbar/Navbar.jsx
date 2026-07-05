@@ -39,7 +39,7 @@ export default function Navbar() {
             </div>
 
             <span className="text-2xl font-bold">
-              STEM<span className="text-primary">Verse</span>
+              Learn<span className="text-primary">Sphere</span>
             </span>
           </Link>
 

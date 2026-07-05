@@ -157,22 +157,22 @@ export default function ChangePasswordCard({ onSubmit }) {
         {/* Action Button */}
         <div className="flex justify-end pt-2">
           <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 py-3.5 px-6 bg-gradient-to-r from-primary to-blue-750 hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 text-white font-extrabold rounded-xl text-xs shadow-md shadow-primary/10 transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:pointer-events-none"
-          >
-            {isSubmitting ? (
-              <>
-                <FaSpinner className="animate-spin w-3.5 h-3.5" />
-                <span>Updating...</span>
-              </>
-            ) : (
-              <>
-                <FaKey className="w-3.5 h-3.5" />
-                <span>Change Password</span>
-              </>
-            )}
-          </button>
+  type="submit"
+  disabled={isSubmitting}
+  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 py-3.5 px-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 disabled:opacity-50 text-white font-bold rounded-xl text-sm shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-700/40 active:translate-y-0 disabled:pointer-events-none"
+>
+  {isSubmitting ? (
+    <>
+      <FaSpinner className="animate-spin w-3.5 h-3.5" />
+      <span>Updating...</span>
+    </>
+  ) : (
+    <>
+      <FaKey className="w-3.5 h-3.5" />
+      <span>Change Password</span>
+    </>
+  )}
+</button>
         </div>
       </form>
     </div>

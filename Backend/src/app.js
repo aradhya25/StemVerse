@@ -12,6 +12,8 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const studentDashboardRoutes = require("./routes/studentDashboardRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const userRoutes = require("./routes/userRoutes");
+const teacherStudentRoutes=require("./routes/teacherStudentRoutes");
+const teacherReviewRoutes = require("./routes/teacherReviewRoutes");
 const path = require("path");
 const app = express();
 
@@ -29,6 +31,9 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/student-dashboard", studentDashboardRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/teacher/students",teacherStudentRoutes);
+app.use("/api/teacher/reviews", teacherReviewRoutes);
+
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "../uploads"))

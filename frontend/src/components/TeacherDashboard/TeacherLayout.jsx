@@ -14,6 +14,7 @@ import {
   FaBell,
   FaBars,
   FaTimes,
+  FaStar,
 } from "react-icons/fa";
 export default function TeacherLayout({ children }) {
   const navigate = useNavigate();
@@ -51,6 +52,11 @@ export default function TeacherLayout({ children }) {
       path: "/teacher/profile",
     },
     {
+      name: "Course Reviews",
+      icon: <FaStar className="w-4 h-4" />,
+      path: "/teacher/reviews",
+    },
+    {
       name: "Settings",
       icon: <FaCog className="w-4 h-4" />,
       path: "#settings",
@@ -71,7 +77,7 @@ export default function TeacherLayout({ children }) {
             <FaBrain className="h-6 w-6" />
           </div>
           <span className="text-lg font-bold tracking-tight text-darkGray">
-            STEM<span className="text-primary font-bold">Verse</span>{" "}
+            Learn<span className="text-primary font-bold">Sphere</span>{" "}
             <span className="text-[10px] uppercase font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
               Teacher
             </span>
@@ -96,7 +102,7 @@ export default function TeacherLayout({ children }) {
                 <FaBrain className="h-6 w-6" />
               </div>
               <span className="text-xl font-bold tracking-tight text-darkGray font-sans">
-                STEM<span className="text-primary">Verse</span>
+                Learn<span className="text-primary">Sphere</span>
                 <span className="block text-[8px] uppercase font-bold text-slate-400 mt-0.5 tracking-widest text-right">
                   Teacher Console
                 </span>
@@ -146,7 +152,7 @@ export default function TeacherLayout({ children }) {
                       <FaBrain className="w-4 h-4" />
                     </div>
                     <span className="text-base font-bold text-darkGray">
-                      STEMVerse
+                      LearnSphere
                     </span>
                   </div>
                   <button
@@ -196,7 +202,7 @@ export default function TeacherLayout({ children }) {
           {/* Header toolbar */}
           <header className="hidden lg:flex items-center justify-between px-8 py-5 bg-white border-b border-slate-150 sticky top-0 z-20">
             <div className="flex items-center space-x-3 text-xs text-slate-400 font-bold uppercase tracking-wider select-none">
-              <span>STEMVerse LMS</span>
+              <span>LearnSphere LMS</span>
               <span>/</span>
               <span className="text-primary">Teacher Dashboard</span>
             </div>

@@ -48,7 +48,7 @@ export default function WhyChoose() {
             Value Proposition
           </h2>
           <p className="text-3xl sm:text-4xl font-extrabold text-darkGray font-sans">
-            Why Choose STEMVerse
+            Why Choose LearnSphere
           </p>
           <p className="text-base text-darkGray-light font-normal">
             We provide a unique combination of premium user experience design and next-generation AI-driven tools.

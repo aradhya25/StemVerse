@@ -65,7 +65,7 @@ export default function StudentLayout({ children }) {
             <FaBrain className="h-6 w-6" />
           </div>
           <span className="text-lg font-bold tracking-tight text-darkGray">
-            STEM<span className="text-primary">Verse</span>
+            Learn<span className="text-primary">Sphere</span>
           </span>
         </Link>
 
@@ -87,7 +87,7 @@ export default function StudentLayout({ children }) {
                 <FaBrain className="h-6 w-6" />
               </div>
               <span className="text-xl font-bold tracking-tight text-darkGray font-sans">
-                STEM<span className="text-primary">Verse</span>
+                Learn<span className="text-primary">Sphere</span>
               </span>
             </Link>
             {/* Menu Items */}
@@ -145,7 +145,7 @@ export default function StudentLayout({ children }) {
                     <FaBrain className="w-4 h-4" />
                   </div>
                   <span className="text-lg font-bold text-darkGray">
-                    STEMVerse
+                    LearnSphere
                   </span>
                 </Link>
                 <button

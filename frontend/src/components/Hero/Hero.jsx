@@ -23,14 +23,14 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-darkGray font-sans leading-none">
-              Empowering STEM Learning with{" "}
-              <span className="text-gradient-primary">AI</span>
+              Learn Smarter with{" "}
+              <span className="text-gradient-primary">LearnSphere</span>
             </h1>
 
             <p className="text-lg text-darkGray-light leading-relaxed font-normal">
-              Learn anytime, anywhere with AI-powered quizzes, interactive video
-              lessons, personalized progress tracking, and expert-created
-              courses.
+              Discover a smarter way to learn with AI-powered quizzes,
+              interactive video lessons, personalized learning paths, progress
+              tracking, and expert-designed courses—all in one platform.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">

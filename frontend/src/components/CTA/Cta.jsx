@@ -15,7 +15,7 @@ export default function CTA() {
               <span>Get Unlimited Access</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-sans">
-              Start Learning with STEMVerse Today
+              Start Learning with LearnSphere Today
             </h2>
             <p className="text-base sm:text-lg text-blue-100 leading-relaxed max-w-2xl mx-auto font-normal">
               Join thousands of students and teachers unlocking their learning
