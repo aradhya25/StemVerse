@@ -62,7 +62,7 @@ LearnSphere
 │   ├── validators
 │   └── uploads
 │
-├── Frontend
+├── frontend
 │   ├── components
 │   ├── context
 │   ├── pages
